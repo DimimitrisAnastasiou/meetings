@@ -1,0 +1,42 @@
+;--------- this state is initiated by this command ---------------------------------  
+/home/dimeanastasiou/FreeDTS/version_2/DTS   -in   input.dts   -top   dts131.tsi   
+;--------- this part can be used as an input.dts file ---------------------------------  
+ Run_Tag = dts
+;-- abstract classes
+Integrator_Type = MC_Simulation
+ Min_Max_Lenghts = 1 3
+ MinfaceAngle = -0.5
+ Temprature = 1 0
+ Box_Centering_F = 0
+ Set_Steps = 1 500000
+Boundary = PBC
+VertexPositionIntegrator = MetropolisAlgorithmOpenMP 1 1 0.05
+AlexanderMove = MetropolisAlgorithmOpenMP 1
+InclusionPoseIntegrator = MetropolisAlgorithmOpenMP 1 1
+VectorFieldsRotation = MetropolisAlgorithm 1 0.1
+NonbinaryTrajectory = TSI TrajTSI 1000
+BinaryTrajectory = NoFile
+VisualizationFormat = VTUFileFormat VTU_F 1000
+CurvatureMethod = ShapeOperator_1
+EnergyMethod = FreeDTS1.0_FF
+ Kappa = 20 0 0
+ Edge_Parameters = 0 0 0
+ VertexArea = 20 0.17 0 0
+ConstraintBetweenGroups = No
+InclusionInducedForceOnVertex = No
+VectorFieldsForceOnVertex = No
+ForceOnVertices = No
+ExternalFieldOnVectorFields = No
+ExternalFieldOnInclusions = No
+InclusionConversion = No
+VertexAdhesionToSubstrate = No
+VolumeCoupling = No
+GlobalCurvatureCoupling = No
+TotalAreaCoupling = No
+Dynamic_Box = IsotropicFrameTension 5 0 XY
+DynamicTopology = No
+OpenEdgeEvolution = No
+TimeSeriesData_Period = 100
+Restart_Period  =  1000
+;------------------------------------------  
+; the total number of thread used in this run was: 12
